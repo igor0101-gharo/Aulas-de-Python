@@ -14,5 +14,4 @@ divisaointeira = numero1//numero2
 resto= numero1%numero2
 
 print(f"Divisão:{divisao}\nParte inteira:{divisaointeira}")
-print(f"Parte inteira:{divisaointeira}")
 print(f"Resto da divisão:{resto}")
