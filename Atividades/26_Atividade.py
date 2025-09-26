@@ -20,8 +20,8 @@ while True:
         contador_impares +=1
 
 total = contador_impares+contador_pares
-media = soma/total
-media_pares = soma_pares/contador_pares
+media = soma/total if total != 0 else 0
+media_pares = soma_pares/contador_pares if contador_pares != 0 else 0
 
 print(f"Quantidade de pares digitados(contando o zero):{contador_pares+1}")
 print(f"Quantidade de ímpares digitados:{contador_impares}")

@@ -34,7 +34,7 @@ Código| Descrição
             os.system("cls")
         case 2:
             total = contador_F + contador_M
-            media = soma/total
+            media = soma/total if total != 0 else 0
             print(f"Média de salário: {media:.2f}")
             print(f"Maior idade: {maior_idade}\nMenor idade: {menor_idade}")
             print(f"Quantidade de mulheres com salário alto: {alto_salario}")
