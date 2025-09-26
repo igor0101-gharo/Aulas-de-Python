@@ -35,6 +35,8 @@ Código| Descrição
         case 2:
             total = contador_F + contador_M
             media = soma/total if total != 0 else 0
+            if menor_idade == 99999999:
+                menor_idade = 0
             print(f"Média de salário: {media:.2f}")
             print(f"Maior idade: {maior_idade}\nMenor idade: {menor_idade}")
             print(f"Quantidade de mulheres com salário alto: {alto_salario}")
@@ -46,7 +48,7 @@ Código| Descrição
             
         case _:
             print("Valor invalido.")
-            error = input("Digite qualquer coisa para retornar.")
+            input("Digite qualquer coisa para retornar.")
             os.system("cls")
 
 
