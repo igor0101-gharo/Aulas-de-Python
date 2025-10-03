@@ -10,5 +10,6 @@ for i in range(5):
         numero = 0
     numeros.append(numero)
 
-for numero in numeros:
-    print(f"{numero}")
+for i, numero in enumerate(numeros, start= 1):
+    print(f"{i}º número: {numero}")
+
