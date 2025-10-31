@@ -1,3 +1,6 @@
+#Código para criar uma lista de livros
+#dois livros já estão pré-incluidos como exemplo
+
 import os
 os.system("cls")
 from dataclasses import dataclass
