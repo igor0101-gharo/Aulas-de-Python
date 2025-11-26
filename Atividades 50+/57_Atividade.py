@@ -9,11 +9,17 @@ class Funcionario:
     matricula: str
     endereco: str
 
+    def exibir_dadosF(self):
+        print(f"-Nome: {self.nome}\n-Data de admissão: {self.data_de_admissao}\n-Matrícula: {self.matricula}\n-Endereço: {self.endereco}\n\n")
+
 @dataclass
 class Cliente:
     nome: str
     data_de_nascimento: str
     endereco: str
+
+    def exibir_dadosC(self):
+        print(f"-Nome: {self.nome}\n-Data de nascimento: {self.data_de_nascimento}\n-Endereço: {self.endereco}\n\n")
 
 def pedir_dados_f():
       for i in range(3):
@@ -65,12 +71,38 @@ def salvar_dadoscsv_c():
     
     print("Dados salvos com sucesso.")
     input("\n___")
+
+lista = []
+listaf = []
+
+
+def adquirir_dados_cliente():
+    with open("Lista_clientes.csv", "r", encoding= "utf8") as arquivo:
+        lista_todos_clientes = arquivo.readlines()
+        for cliente in lista_todos_clientes:
+            nome, datanascimento, endereco = cliente.strip().split(",")
+            dados_cliente = Cliente(nome= nome , data_de_nascimento= datanascimento , endereco= endereco)
+            lista.append(dados_cliente)
+        print("--Lista de Clientes--")
+        for cliente in lista:
+            cliente.exibir_dadosC()
+
+def adquirir_dados_funcionarios():
+    with open("Lista_funcionários.csv", "r", encoding= "utf8") as arquivo:
+        lista_todos_funcionarios = arquivo.readlines()
+        for funcionario in lista_todos_funcionarios:
+            nome, data_admissao, matricula, endereco = funcionario.strip().split(",")
+            dados_funcionario = Funcionario(nome= nome, data_de_admissao= data_admissao, matricula= matricula, endereco=endereco)
+            listaf.append(dados_funcionario)
+        print("--Lista de Funcionários--")
+        for funcionario in listaf:
+            funcionario.exibir_dadosF()
              
             
 lista_funcionarios = []
 lista_clientes = []
 while True:
-    codigo = int(input("Escolha a opção desejada:\n1. Adicionar Funcionários\n2. Adicionar Clientes\n3. Salvar funcionários em arquivo .csv\n4.Salvar clientes em arquivo .csv\n5.Sair"))
+    codigo = int(input("Escolha a opção desejada:\n1. Adicionar Funcionários\n2. Adicionar Clientes\n3. Salvar funcionários em arquivo .csv\n4.Salvar clientes em arquivo .csv\n5.Ler lista de funcionários\n6.Ler lista de Clientes\n7.Sair"))
     match codigo:
         case 1:
             pedir_dados_f()
@@ -80,13 +112,23 @@ while True:
             pedir_dados_c()
             salvar_dados_c()
             os.system("cls")
-        case 5:
+        case 7:
             print("Encerrando.")
             break
         case 3:
             salvar_dadoscsv_f()
         case 4:
-            salvar_dadoscsv_c()     
+            salvar_dadoscsv_c()
+        case 5:
+            os.system("cls")
+            adquirir_dados_funcionarios()
+            input("...")
+            os.system("cls")
+        case 6:
+            os.system("cls")
+            adquirir_dados_cliente()
+            input("...")     
+            os.system("cls")
         case _:
             input("Valor inválido.")
             os.system("cls")

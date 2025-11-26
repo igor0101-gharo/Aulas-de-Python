@@ -10,7 +10,6 @@ class Funcionario:
     endereco: str
 
     def exibir_dadosF(self):
-        print("--DADOS DOS FUNCIONÁRIOS--")
         print(f"-Nome: {self.nome}\n-Data de admissão: {self.data_de_admissao}\n-Matrícula: {self.matricula}\n-Endereço: {self.endereco}\n\n")
 
 @dataclass
@@ -20,7 +19,6 @@ class Cliente:
     endereco: str
     
     def exibir_dadosC(self):
-        print("--DADOS DOS CLIENTES--")
         print(f"-Nome: {self.nome}\n-Data de nascimento: {self.data_de_nascimento}\n-Endereço: {self.endereco}\n\n")
 
 lista = []
@@ -34,6 +32,7 @@ def adquirir_dados_cliente():
             nome, datanascimento, endereco = cliente.strip().split(",")
             dados_cliente = Cliente(nome= nome , data_de_nascimento= datanascimento , endereco= endereco)
             lista.append(dados_cliente)
+        print("--Lista de Clientes--")
         for cliente in lista:
             cliente.exibir_dadosC()
 
@@ -44,6 +43,7 @@ def adquirir_dados_funcionarios():
             nome, data_admissao, matricula, endereco = funcionario.strip().split(",")
             dados_funcionario = Funcionario(nome= nome, data_de_admissao= data_admissao, matricula= matricula, endereco=endereco)
             listaf.append(dados_funcionario)
+        print("--Lista de Funcionários--")
         for funcionario in listaf:
             funcionario.exibir_dadosF()
 
