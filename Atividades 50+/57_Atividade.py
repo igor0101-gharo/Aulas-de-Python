@@ -36,7 +36,7 @@ def salvar_dados_f():
 def salvar_dadoscsv_f():
     with open("Lista_funcionários.csv", "a", encoding= "utf8") as arquivo_funcionarios:
                 for funcionario in lista_funcionarios:
-                    arquivo_funcionarios.write(f"{funcionario.nome},{funcionario.data_de_admissao},{funcionario.matricula},{funcionario.endereco}")
+                    arquivo_funcionarios.write(f"{funcionario.nome},{funcionario.data_de_admissao},{funcionario.matricula},{funcionario.endereco}\n")
                 print("Dados salvos com sucesso.")
                 input("\n___")
 
@@ -61,7 +61,7 @@ def salvar_dados_c():
 def salvar_dadoscsv_c():
     with open("Lista_clientes.csv", "a", encoding= "utf8") as arquivo_clientes:
           for cliente in lista_clientes:
-               arquivo_clientes.write(f"{cliente.nome},{cliente.data_de_nascimento},{cliente.endereco}")
+               arquivo_clientes.write(f"{cliente.nome},{cliente.data_de_nascimento},{cliente.endereco}\n")
     
     print("Dados salvos com sucesso.")
     input("\n___")
