@@ -33,6 +33,13 @@ def salvar_dados_f():
                 print("Dados salvos com sucesso.")
                 input("\n___")
 
+def salvar_dadoscsv_f():
+    with open("Lista_funcionários.csv", "a", encoding= "utf8") as arquivo_funcionarios:
+                for funcionario in lista_funcionarios:
+                    arquivo_funcionarios.write(f"{funcionario.nome},{funcionario.data_de_admissao},{funcionario.matricula},{funcionario.endereco}")
+                print("Dados salvos com sucesso.")
+                input("\n___")
+
 def pedir_dados_c():
     for i in range(3):
         pessoa = Cliente(
@@ -50,12 +57,20 @@ def salvar_dados_c():
     
     print("Dados salvos com sucesso.")
     input("\n___")
+
+def salvar_dadoscsv_c():
+    with open("Lista_clientes.csv", "a", encoding= "utf8") as arquivo_clientes:
+          for cliente in lista_clientes:
+               arquivo_clientes.write(f"{cliente.nome},{cliente.data_de_nascimento},{cliente.endereco}")
+    
+    print("Dados salvos com sucesso.")
+    input("\n___")
              
             
 lista_funcionarios = []
 lista_clientes = []
 while True:
-    codigo = int(input("Escolha a opção desejada:\n1. Adicionar Funcionários\n2. Adicionar Clientes\n3. Sair\n"))
+    codigo = int(input("Escolha a opção desejada:\n1. Adicionar Funcionários\n2. Adicionar Clientes\n3. Salvar funcionários em arquivo .csv\n4.Salvar clientes em arquivo .csv\n5.Sair"))
     match codigo:
         case 1:
             pedir_dados_f()
@@ -65,9 +80,13 @@ while True:
             pedir_dados_c()
             salvar_dados_c()
             os.system("cls")
-        case 3:
+        case 5:
             print("Encerrando.")
             break
+        case 3:
+            salvar_dadoscsv_f()
+        case 4:
+            salvar_dadoscsv_c()     
         case _:
             input("Valor inválido.")
             os.system("cls")
