@@ -11,7 +11,7 @@ class Cliente:
     #Método para mostrar as informações dos clientes
     #Método é o nome dado a uma função que pertence à classe
     def mostrar_dados(self):
-        print(f"Nome: {self.nome} \nE-mail: {self.email}\nTelefone: {self.telefone}")
+        print(f"Nome: {self.nome} \nE-mail: {self.email}\nTelefone: {self.telefone}\n")
 
 lista_clientes = []
 #Função para verificar se a lista está vazia
@@ -45,7 +45,7 @@ def mostrar_todos_clientes(lista_clientes):
     
     print("\n--- Lista de clientes ---")
     for cliente in lista_clientes:
-        print(f"{cliente.mostrar_dados()}")
+        cliente.mostrar_dados()
 
 #Função para atualizar clientes
 def atualizar_clientes(lista_clientes):
@@ -82,4 +82,63 @@ def atualizar_clientes(lista_clientes):
     
     else:
         print(f"\nCliente com nome: {nome_buscar} não encontrado")
+
+#função para excluir cliente
+def excluir_cliente(lista_clientes):
+    if verificar_lista(lista_clientes):
+        return
+    
+    mostrar_todos_clientes(lista_clientes)
+
+    nome_buscar = input("\nDigite p mp,e dp cçoemte qie deseka excluir: ")
+
+    cliente_para_remover = encontrar_cliente_nome(lista_clientes, nome_buscar)
+
+    if cliente_para_remover:
+        lista_clientes.remove(cliente_para_remover)
+        print(f"Cliente: {cliente_para_remover.nome} excluido com sucesso!")
+    else:
+        print(f"\nCliente com o nome: {nome_buscar} não encontrado.")
+
+
+
+#Mostrando menu
+while True:
+    codigo = int(input("""
+---Gerenciador de Clientes---
+1 - Adicionar
+2 - Mostrar dados
+3 - Atualizar
+4 - Excluir
+0 - Sair\n\n"""))
+    
+    os.system("cls")
+    match codigo:
+        case 1:
+            adicionar_cliente(lista_clientes)
+            input("")
+            os.system("cls")
+        case 2:
+            mostrar_todos_clientes(lista_clientes)
+            input("")
+            os.system("cls")
+        case 3: 
+            atualizar_clientes(lista_clientes)
+            input("")
+            os.system("cls")
+        case 4:
+            excluir_cliente(lista_clientes)
+            input("")
+            os.system("cls")
+        case 0:
+            print("Encerrando...")
+            break
+        case _:
+            input("Valor inválido.")
+            os.system("cls")
+
+
+
+
+
         
