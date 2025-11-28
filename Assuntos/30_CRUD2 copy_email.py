@@ -36,7 +36,7 @@ def adicionar_cliente(lista_clientes):
 def encontrar_cliente_nome(lista_clientes, nome_buscar):
     nome_buscar_lower = nome_buscar.lower()
     for cliente in lista_clientes:
-        if cliente.nome.lower() == nome_buscar_lower:
+        if cliente.email.lower() == nome_buscar_lower:
             return cliente
     return None #None significa retornar vazio, sem conteúdo
 
@@ -56,8 +56,8 @@ def atualizar_clientes(lista_clientes):
     #mostrar lista para ajudar o usuário
     mostrar_todos_clientes(lista_clientes)
     print("--- Atualizar dados do cliente ---")
-    nome_buscar = input("\nDigite o nome do cliente:\n")
-    cliente_para_atualizar = encontrar_cliente_nome(lista_clientes, nome_buscar= nome_buscar)
+    email_buscar = input("\nDigite o E-mail do cliente:\n")
+    cliente_para_atualizar = encontrar_cliente_nome(lista_clientes, nome_buscar= email_buscar)
     
     if cliente_para_atualizar:
         print("\nPessoa encontrada.")
@@ -79,10 +79,10 @@ def atualizar_clientes(lista_clientes):
         if novo_telefone:
             cliente_para_atualizar.telefone = novo_telefone
         
-        print(f"\nDados do cliente: {nome_buscar} atualizados com sucesso!")
+        print(f"\nDados do E-mail: {email_buscar} atualizados com sucesso!")
     
     else:
-        print(f"\nCliente com nome: {nome_buscar} não encontrado")
+        print(f"\nCliente com E-mail: {email_buscar} não encontrado")
 
 #função para excluir cliente
 def excluir_cliente(lista_clientes):
@@ -91,15 +91,15 @@ def excluir_cliente(lista_clientes):
     
     mostrar_todos_clientes(lista_clientes)
 
-    nome_buscar = input("\nDigite o nome que você deseja excluir: ")
+    email_buscar = input("\nDigite o E-mail que você deseja excluir: ")
 
-    cliente_para_remover = encontrar_cliente_nome(lista_clientes, nome_buscar)
+    cliente_para_remover = encontrar_cliente_nome(lista_clientes, email_buscar)
 
     if cliente_para_remover:
         lista_clientes.remove(cliente_para_remover)
-        print(f"Cliente: {cliente_para_remover.nome} excluido com sucesso!")
+        print(f"E-mail do cliente: {cliente_para_remover.email} excluido com sucesso!")
     else:
-        print(f"\nCliente com o nome: {nome_buscar} não encontrado.")
+        print(f"\nCliente com o E-mail: {email_buscar} não encontrado.")
 
 
 
