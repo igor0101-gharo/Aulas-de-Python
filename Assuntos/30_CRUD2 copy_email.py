@@ -33,7 +33,7 @@ def adicionar_cliente(lista_clientes):
     print(f"\nCliente {nome} adicionado com sucesso!")
 
 #Função para encontrar um cliente na lista
-def encontrar_cliente_nome(lista_clientes, nome_buscar):
+def encontrar_cliente_email(lista_clientes, nome_buscar):
     nome_buscar_lower = nome_buscar.lower()
     for cliente in lista_clientes:
         if cliente.email.lower() == nome_buscar_lower:
@@ -57,7 +57,7 @@ def atualizar_clientes(lista_clientes):
     mostrar_todos_clientes(lista_clientes)
     print("--- Atualizar dados do cliente ---")
     email_buscar = input("\nDigite o E-mail do cliente:\n")
-    cliente_para_atualizar = encontrar_cliente_nome(lista_clientes, nome_buscar= email_buscar)
+    cliente_para_atualizar = encontrar_cliente_email(lista_clientes, nome_buscar= email_buscar)
     
     if cliente_para_atualizar:
         print("\nPessoa encontrada.")
@@ -93,7 +93,7 @@ def excluir_cliente(lista_clientes):
 
     email_buscar = input("\nDigite o E-mail que você deseja excluir: ")
 
-    cliente_para_remover = encontrar_cliente_nome(lista_clientes, email_buscar)
+    cliente_para_remover = encontrar_cliente_email(lista_clientes, email_buscar)
 
     if cliente_para_remover:
         lista_clientes.remove(cliente_para_remover)
