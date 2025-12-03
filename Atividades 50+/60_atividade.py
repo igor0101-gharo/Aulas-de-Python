@@ -1,6 +1,7 @@
 import os
 os.system("cls")
 from dataclasses import dataclass
+import time
 
 @dataclass
 class Endereco:
@@ -128,7 +129,88 @@ def atualizar_aluno(lista_alunos):
             nome_atualizar.nascimento = novo_nascimento
         if novo_ra:
             nome_atualizar.ra = novo_ra
-        if novo_curso
+        if novo_curso:
+            nome_atualizar.curso = novo_curso
+        if confirmacao == "s":
+            if novo_rua:
+                nome_atualizar.endereco.logradouro = novo_rua
+            if novo_numero:
+                nome_atualizar.endereco.numero = novo_numero
+            if nova_cidade:
+                nome_atualizar.endereco.cidade = nova_cidade
+            if novo_estado:
+                nome_atualizar.endereco.estado = novo_estado
+        print("Dados atualizados.")
+    else:
+        print("Aluno não encontrado.")
+
+def excluir_aluno(lista_alunos):
+    if verificar_lista(lista_alunos):
+        return
+
+    mostrar_lista(lista_alunos)
+
+    nome_buscar = input("Digite o nome do aluno que deseja excluir:\n")
+
+    nome_excluir = buscar_aluno(lista_alunos, nome_buscar)
+
+    if nome_excluir:
+        lista_alunos.remove(nome_excluir)
+        print("Aluno excluido com sucesso.")
+    else:
+        print("Aluno não encontrado.")
+
+
+while True:
+    try:
+        codigo = int(input("""
+--- Gerenciador de Alunos---
+1- Adicionar Aluno.
+2- Buscar Aluno
+3- Atualizar Aluno
+4- Excluir aluno
+5- Mostrar lista
+6- Sair\n\n"""))
+    except ValueError:
+        print("Entrada inválida. Digite um número...")
+        time.sleep(2)
+        os.system("cls")
+        continue
+    os.system("cls")
+    match codigo:
+        case 1:
+            adicionar_aluno(lista_alunos)
+            input("")
+            os.system("cls")
+        case 2:
+            aluno_buscar = input("Digite o nome do aluno:\n")
+            informar_aluno(lista_alunos, aluno_buscar)
+            input("")
+            os.system("cls")
+        case 3:
+            atualizar_aluno(lista_alunos)
+            input("")
+            os.system("cls")
+        case 4:
+            excluir_aluno(lista_alunos)
+            input("")
+            os.system("cls")
+        case 5:
+            mostrar_lista(lista_alunos)
+            input("")
+            os.system("cls")
+        case 6:
+            print("aplicação encerrada.")
+            break
+        case _:
+            input("Valor inválido.")
+
+        
+
+
+            
+
+                
 
 
 
