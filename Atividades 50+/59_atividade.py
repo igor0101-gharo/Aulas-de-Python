@@ -33,7 +33,7 @@ def adicionar(lista_funcionarios):
     print("Funcionário cadastrado com sucesso.")
 
 def mostrar_lista(lista_funcionarios):
-    if verificar_lista:
+    if verificar_lista(lista_funcionarios):
         return
     
     print("--- Lista de Funcionários ---")

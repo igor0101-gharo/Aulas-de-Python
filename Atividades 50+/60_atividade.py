@@ -79,6 +79,62 @@ def mostrar_lista(lista_alunos):
     for aluno in lista_alunos:
         aluno.mostrar_nome()
 
+def buscar_aluno(lista_alunos, nome_buscar):
+    nome_buscar_lower = nome_buscar.lower()
+    for aluno in lista_alunos:
+        if aluno.nome.lower() == nome_buscar_lower:
+            return aluno
+    return None
+
+def informar_aluno(lista_alunos, nome_buscar):
+    aluno = buscar_aluno(lista_alunos, nome_buscar)
+    aluno.mostrar_tudo()
+
+def atualizar_aluno(lista_alunos):
+    if verificar_lista(lista_alunos):
+        return
+
+    mostrar_lista(lista_alunos)
+
+    nome_atualizar_buscar = input ("Qual Aluno você deseja atualizar informações?\n")
+    nome_atualizar = buscar_aluno(lista_alunos, nome_atualizar_buscar)
+
+    if nome_atualizar:
+        print("Digite as novas informções ou deixe em branco para manter.")
+        print(f"Nome atual: {nome_atualizar.nome}\n")
+        novo_nome = input("Digite o novo nome:\n")
+        os.system("cls")
+        print(f"Data de nascimento atual: {nome_atualizar.nascimento}\n")
+        novo_nascimento = input("Digite a nova data de nascimento:\n")
+        os.system("cls")
+        print(f"R.A atual: {nome_atualizar.ra}\n")
+        novo_ra = input("Digite o novo R.A:\n")
+        os.system("cls")
+        print(f"Curso atual: {nome_atualizar.curso}\n")
+        novo_curso = input("Digite o novo curso:\n")
+        confirmacao = input("Deseja alterar o endereço?(s/n)").lower()
+        if confirmacao == "s":
+            print("Endereço atual:\n\n")
+            nome_atualizar.mostrar_endereco()
+            print("")
+            novo_rua = input("Digite a nova rua:\n")
+            novo_numero = input("Digite o novo número da residência:\n")
+            nova_cidade = input("Digite a nova cidade:\n")
+            novo_estado = input("Digite o novo estado:\n")
+
+        if novo_nome:
+            nome_atualizar.nome = novo_nome
+        if novo_nascimento:
+            nome_atualizar.nascimento = novo_nascimento
+        if novo_ra:
+            nome_atualizar.ra = novo_ra
+        if novo_curso
+
+
+
+
+
+
 
 
 
