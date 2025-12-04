@@ -160,7 +160,7 @@ def excluirP(lista):
         return
 
     mostrar_listaP(lista)
-    nome_buscar = input("Digite o nome do cliente que deseja excluir.\n")
+    nome_buscar = input("Digite o nome do produto que deseja excluir.\n")
     nome_excluir = encontrar(lista, nome_buscar)
 
     if nome_excluir:
@@ -168,7 +168,146 @@ def excluirP(lista):
         print("Produto excluído com sucesso.")
     else:
         print(f" Produto '{nome_buscar}' não encontrado")
-        
+
+def encontrar_cliente(lista):
+    if verificar_lista(lista):
+        print("Não há itens cadastrados.")
+        return
+
+    nome_buscar = input("Digite o nome do cliente que deseja encontrar.\n")
+    nome_mostrar = encontrar(lista, nome_buscar)
+
+    if nome_buscar:
+        print("--- Dados do Cliente ---")
+        nome_buscar.mostrar_dadosC()
+    else:
+        print("Cliente não encontrado")
+
+def encontrar_produto(lista):
+    if verificar_lista(lista):
+        print("Não há itens cadastrados.")
+        return
+
+    nome_buscar = input("Digite o nome do produto que deseja encontrar.\n")
+    nome_mostrar = encontrar(lista, nome_buscar)
+
+    if nome_mostrar:
+        print("--- Dados do Produto ---")
+        nome_mostrar.mostrar_dadosP()
+    else:
+        print("Produto não encontrado")
+
+
+while True:
+    try:
+        codigo = int(input("""
+--- MENU ----
+1- Lista de Clientes
+2- Lista de Produtos
+3- sair"""))
+    except ValueError:
+        print("Entrada inválida. Digite um número...")
+        time.sleep(2)
+        os.system("cls")
+        continue
+    
+    match codigo:
+        case 1:
+            while True:
+                try:
+                    funcao = int(input("""
+---Lista de clientes---
+1- Adicionar um cliente
+2- Buscar um cliente
+3- Mostrar lista
+4- Atualizar um cliente
+5- Excluir um cliente
+6-voltar"""))
+                except ValueError:
+                    print("Entrada inválida. Digite um número...")
+                    time.sleep(2)
+                    os.system("cls")
+                    continue
+
+                match funcao:
+                    case 1: 
+                        adicionar_listaC(lista_clientes)
+                        input("")
+                        os.system("cls")
+                    case 2:
+                        encontrar_cliente(lista_clientes)
+                        input("")
+                        os.system("cls")
+                    case 3:
+                        mostrar_listaC(lista_clientes)
+                        input("")
+                        os.system("cls")
+                    case 4:
+                        atualizar_cliente(lista_clientes)
+                        input("")
+                        os.system("cls")
+                    case 5:
+                        excluirC(lista_clientes)
+                        input("")
+                        os.system("cls")
+                    case 6:
+                        os.system("cls")
+                        break
+                    case _:
+                        os.system("cls")
+                        input("Valor inválido. Digite novamente.")
+                        os.system("cls")
+
+        case 2:
+            while True:
+                try:
+                    funcao = int(input("""
+---Lista de produtos---
+1- Adicionar um produto
+2- Buscar um produto
+3- Mostrar lista
+4- Atualizar um produto
+5- Excluir um produto
+6-voltar"""))
+                except ValueError:
+                    print("Entrada inválida. Digite um número...")
+                    time.sleep(2)
+                    os.system("cls")
+                    continue
+
+                match funcao:
+                    case 1:
+                        adicionar_listaP(lista_produtos)
+                        input("")
+                        os.system("cls")
+                    case 2:
+                        encontrar_produto(lista_produtos)
+                        input("")
+                        os.system("cls")
+                    case 3:
+                        mostrar_listaP(lista_produtos)
+                        input("")
+                        os.system("cls")
+                    case 4:
+                        atualizar_produto(lista_produtos)
+                        input("")
+                        os.system("cls")
+                    case 5:
+                        excluirP(lista_produtos)
+                        input("")
+                        os.system("cls")
+                    case 6:
+                        os.system("cls")
+                        break
+                    case _:
+                        os.system("cls")
+                        input("Valor inválido.digite novamente")
+                        os.system("cls")
+
+
+                        
+
+    
 
         
-            
+      
