@@ -50,15 +50,14 @@ def adicionar_listaP(lista):
     print("Produto adicionado com sucesso.")
 
 def encontrar(lista, nome_buscar):
-    nome_buscar_lower = nome_buscar.lowwer()
+    nome_buscar_lower = nome_buscar.lower()
     for item in lista:
-        if item.nome == nome_buscar_lower:
+        if item.nome.lower() == nome_buscar_lower:
             return item
     return None
 
 def mostrar_listaC(lista):
     if verificar_lista(lista):
-        print("Não há itens cadastrados")
         return
     
     print("---Lista de Clientes---")
@@ -68,7 +67,6 @@ def mostrar_listaC(lista):
 
 def mostrar_listaP(lista):
     if verificar_lista(lista):
-        print("Não há itens cadastrados")
         return
     
     print("---Lista de Produtos---")
@@ -77,7 +75,6 @@ def mostrar_listaP(lista):
 
 def atualizar_cliente(lista):
     if verificar_lista(lista):
-        print("Não há itens cadastrados")
         return
 
     mostrar_listaC(lista)
@@ -109,7 +106,6 @@ def atualizar_cliente(lista):
 
 def atualizar_produto(lista):
     if verificar_lista(lista):
-        print("Não há itens cadastrados")
         return
         
     
@@ -140,7 +136,6 @@ def atualizar_produto(lista):
 
 def excluirC(lista):
     if verificar_lista(lista):
-        print("Não há itens cadastrados")
         return
 
     mostrar_listaC(lista)
@@ -156,7 +151,6 @@ def excluirC(lista):
 
 def excluirP(lista):
     if verificar_lista(lista):
-        print("Não há itens cadastrados")
         return
 
     mostrar_listaP(lista)
@@ -171,21 +165,19 @@ def excluirP(lista):
 
 def encontrar_cliente(lista):
     if verificar_lista(lista):
-        print("Não há itens cadastrados.")
         return
 
     nome_buscar = input("Digite o nome do cliente que deseja encontrar.\n")
     nome_mostrar = encontrar(lista, nome_buscar)
 
-    if nome_buscar:
+    if nome_mostrar:
         print("--- Dados do Cliente ---")
-        nome_buscar.mostrar_dadosC()
+        nome_mostrar.mostrar_dadosC()
     else:
         print("Cliente não encontrado")
 
 def encontrar_produto(lista):
     if verificar_lista(lista):
-        print("Não há itens cadastrados.")
         return
 
     nome_buscar = input("Digite o nome do produto que deseja encontrar.\n")
@@ -204,13 +196,13 @@ while True:
 --- MENU ----
 1- Lista de Clientes
 2- Lista de Produtos
-3- sair"""))
+3- sair\n\n"""))
     except ValueError:
         print("Entrada inválida. Digite um número...")
         time.sleep(2)
         os.system("cls")
         continue
-    
+    os.system("cls")
     match codigo:
         case 1:
             while True:
@@ -222,7 +214,7 @@ while True:
 3- Mostrar lista
 4- Atualizar um cliente
 5- Excluir um cliente
-6-voltar"""))
+6-voltar\n\n"""))
                 except ValueError:
                     print("Entrada inválida. Digite um número...")
                     time.sleep(2)
@@ -268,7 +260,7 @@ while True:
 3- Mostrar lista
 4- Atualizar um produto
 5- Excluir um produto
-6-voltar"""))
+6-voltar\n\n"""))
                 except ValueError:
                     print("Entrada inválida. Digite um número...")
                     time.sleep(2)
