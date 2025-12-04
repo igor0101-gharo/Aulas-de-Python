@@ -32,4 +32,75 @@ def verificar_lista(lista):
         return True
     return False
 
-def adicionar_lista(lista):
+def adicionar_listaC(lista):
+    cliente_add = Cliente(nome= input("Digite o nome do cliente.\n"),
+                      email= input("Digite o E-mail do cliente.\n"),
+                      telefone= input("Digite o telefone de contato.\n"),
+                      endereco=input("Digite o endereço do cliente.\n"))
+    lista.append(cliente_add)
+    print("Cliente adicionado com sucesso!")
+
+def adicionar_listaP(lista):
+    produto_add = Produto(nome= input("Digite o nome do produto.\n"),
+                          quantidade=int(input("Digite a quantidade recebida no lote.\n")),
+                          lote= input("Digite o número do lote.\n"),
+                          validade= input("Digite a data de validade do lote.\n"))
+
+    lista.append(produto_add)
+    print("Produto adicionado com sucesso.")
+
+def encontrar(lista, nome_buscar):
+    nome_buscar_lower = nome_buscar.lowwer()
+    for item in lista:
+        if item.nome == nome_buscar_lower:
+            return item
+    return None
+
+def mostrar_listaC(lista):
+    if verificar_lista(lista):
+        return
+    
+    print("---Lista de Clientes---")
+    for cliente in lista:
+        cliente.mostrar_dadosC()
+
+
+def mostrar_listaP(lista):
+    if verificar_lista(lista):
+        return
+    
+    print("---Lista de Produtos---")
+    for produto in lista:
+        produto.mostrar_dadosP()
+
+def atualizar_cliente(lista):
+    if verificar_lista(lista):
+        return
+
+    mostrar_listaC(lista)
+    nome_buscar = input("Digite o nome do cliente para atualizar.\n")
+
+    nome_att = encontrar(lista, nome_buscar)
+
+    if nome_att:
+        print("--- Dados atuais ---")
+        nome_att.mostrar_dadosC()
+        print("\nDigite os novos dados ou deixe em branco para manter.")
+        novo_nome = input("Nome: ")
+        novo_email = input("E-mail: ")
+        novo_telefone = input("Telefone:  ")
+        novo_endereco = input("Endereço:  ")
+
+        if novo_nome:
+            nome_att.nome = novo_nome
+        if novo_email:
+            nome_att.email = novo_email
+        if novo_telefone:
+            nome_att.telefone = novo_telefone
+        if novo_endereco:
+            nome_att.endereco = novo_endereco
+        
+        print("Dados atualizados com sucesso.")
+    else:
+        print(f" Cliente '{nome_buscar}' não encontrado")
+            
