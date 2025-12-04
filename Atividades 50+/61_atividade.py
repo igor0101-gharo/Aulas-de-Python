@@ -58,6 +58,7 @@ def encontrar(lista, nome_buscar):
 
 def mostrar_listaC(lista):
     if verificar_lista(lista):
+        print("Não há itens cadastrados")
         return
     
     print("---Lista de Clientes---")
@@ -67,6 +68,7 @@ def mostrar_listaC(lista):
 
 def mostrar_listaP(lista):
     if verificar_lista(lista):
+        print("Não há itens cadastrados")
         return
     
     print("---Lista de Produtos---")
@@ -75,6 +77,7 @@ def mostrar_listaP(lista):
 
 def atualizar_cliente(lista):
     if verificar_lista(lista):
+        print("Não há itens cadastrados")
         return
 
     mostrar_listaC(lista)
@@ -103,4 +106,69 @@ def atualizar_cliente(lista):
         print("Dados atualizados com sucesso.")
     else:
         print(f" Cliente '{nome_buscar}' não encontrado")
+
+def atualizar_produto(lista):
+    if verificar_lista(lista):
+        print("Não há itens cadastrados")
+        return
+        
+    
+    mostrar_listaP(lista)
+    nome_buscar = input("Digite o nome do produto.\n")
+    nome_att = encontrar(lista, nome_buscar)
+
+    if nome_att:
+        print("--- Dados atuais---")
+        nome_att.mostrar_dadosP()
+        print("\nDigite os novos dados ou deixe em branco para manter.")
+        novo_nome = input("Nome: ")
+        nova_quantidade = input("Quantidade: ")
+        novo_lote = input("Lote: ")
+        nova_validade = input("Validade: ")
+
+        if novo_nome:
+            nome_att.nome = novo_nome
+        if nova_quantidade:
+            nome_att.quantidade = nova_quantidade
+        if novo_lote:
+            nome_att.lote = novo_lote
+        if nova_validade:
+            nome_att.validade = nova_validade
+        print("Dados atualizados com sucesso.")
+    else:
+        print(f"produto '{nome_buscar}' não encontrado.")
+
+def excluirC(lista):
+    if verificar_lista(lista):
+        print("Não há itens cadastrados")
+        return
+
+    mostrar_listaC(lista)
+    nome_buscar = input("Digite o nome do cliente que deseja excluir.\n")
+    nome_excluir = encontrar(lista, nome_buscar)
+
+    if nome_excluir:
+        lista.remove(nome_excluir)
+        print("Cliente excluído com sucesso.")
+    else:
+        print(f" Cliente '{nome_buscar}' não encontrado")
+        
+
+def excluirP(lista):
+    if verificar_lista(lista):
+        print("Não há itens cadastrados")
+        return
+
+    mostrar_listaP(lista)
+    nome_buscar = input("Digite o nome do cliente que deseja excluir.\n")
+    nome_excluir = encontrar(lista, nome_buscar)
+
+    if nome_excluir:
+        lista.remove(nome_excluir)
+        print("Produto excluído com sucesso.")
+    else:
+        print(f" Produto '{nome_buscar}' não encontrado")
+        
+
+        
             
