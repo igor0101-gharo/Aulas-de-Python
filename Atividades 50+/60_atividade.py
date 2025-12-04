@@ -46,7 +46,7 @@ def adicionar_aluno(lista_alunos):
     os.system("cls")
     nascimento = input("Digite a data de nascimento do aluno:\n")
     os.system("cls")
-    numero = input("Digite o R.A do aluno:\n")
+    ra = input("Digite o R.A do aluno:\n")
     os.system("cls")
     curso = input("Digite o curso em que o aluno está matriculado:\n")
     os.system("cls")
@@ -65,7 +65,7 @@ def adicionar_aluno(lista_alunos):
     
     Aluno_adicionar = Aluno(nome=nome ,
                             nascimento= nascimento ,
-                            ra=numero,
+                            ra=ra,
                             curso= curso,
                             endereco= endereco_adicionar)
     
