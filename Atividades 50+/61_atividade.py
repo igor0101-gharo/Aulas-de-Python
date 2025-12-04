@@ -58,6 +58,7 @@ def encontrar(lista, nome_buscar):
 
 def mostrar_listaC(lista):
     if verificar_lista(lista):
+
         return
     
     print("---Lista de Clientes---")
