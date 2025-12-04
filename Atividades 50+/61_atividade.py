@@ -303,6 +303,16 @@ while True:
                         os.system("cls")
                         input("Valor inválido.digite novamente")
                         os.system("cls")
+        
+        case 3:
+            os.system("cls")
+            print("Aplicação encerrada.")
+            break
+        
+        case _:
+            os.system("cls")
+            input("Valor inválido. Digite novamente.")
+            os.system("cls")
 
 
                         
